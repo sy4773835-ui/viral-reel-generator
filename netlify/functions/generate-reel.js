@@ -1,4 +1,4 @@
-exports.handler = async (event) => {
+export async function handler(event) {}
   try {
     if (event.httpMethod !== "POST") {
       return {
