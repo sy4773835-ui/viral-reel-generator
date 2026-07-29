@@ -37,7 +37,7 @@ export const toneKeywordsForDisplay = toneKeywords;
  * The API key never touches the frontend.
  */
 export async function generateReelScript(idea: string, tone: Tone, lang: Lang): Promise<ReelScript> {
-  const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-reel`;
+  const url = "/.netlify/functions/generate-reel";
   const res = await fetch(url, {
     method: 'POST',
     headers: {
