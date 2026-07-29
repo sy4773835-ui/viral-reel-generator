@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useLang } from '@/i18n/LangContext';
+import { useAuth } from '@/auth/AuthContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { Sparkles, Menu, X } from 'lucide-react';
+import { UserMenu } from './UserMenu';
+import { Sparkles, Menu, X, LogIn } from 'lucide-react';
 
 export function Header() {
   const { t } = useLang();
+  const { user, loading } = useAuth();
   const [open, setOpen] = useState(false);
 
   const links = [
@@ -39,18 +42,31 @@ export function Header() {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-3 md:flex">
             <LanguageSwitcher />
+            {!loading && user && <UserMenu />}
+            {!loading && !user && (
+              <button
+                data-login-trigger
+                className="btn-primary px-5 py-2 text-sm"
+              >
+                <LogIn className="h-4 w-4" />
+                {t.auth.signIn}
+              </button>
+            )}
           </div>
 
-          <button
-            onClick={() => setOpen((p) => !p)}
-            className="grid h-10 w-10 place-items-center rounded-xl bg-white/70 border border-pink-200 text-pink-700 md:hidden"
-            aria-label="Menu"
-            aria-expanded={open}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            {!loading && user && <UserMenu />}
+            <button
+              onClick={() => setOpen((p) => !p)}
+              className="grid h-10 w-10 place-items-center rounded-xl bg-white/70 border border-pink-200 text-pink-700 md:hidden"
+              aria-label="Menu"
+              aria-expanded={open}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </nav>
 
         {open && (
@@ -68,6 +84,16 @@ export function Header() {
             <div className="pt-1">
               <LanguageSwitcher />
             </div>
+            {!loading && !user && (
+              <button
+                onClick={() => setOpen(false)}
+                className="btn-primary w-full text-sm"
+                data-login-trigger
+              >
+                <LogIn className="h-4 w-4" />
+                {t.auth.signIn}
+              </button>
+            )}
           </div>
         )}
       </div>

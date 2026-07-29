@@ -43,6 +43,8 @@ export interface Translation {
     errors: {
       empty: string;
       tooShort: string;
+      invalidResponse: string;
+      apiError: string;
     };
   };
   output: {
@@ -87,6 +89,42 @@ export interface Translation {
     rights: string;
     madeWith: string;
     links: { label: string }[];
+  };
+  auth: {
+    signIn: string;
+    signUp: string;
+    signInTitle: string;
+    signUpTitle: string;
+    signInSubtitle: string;
+    signUpSubtitle: string;
+    googleBtn: string;
+    or: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    password: string;
+    passwordPlaceholder: string;
+    signInBtn: string;
+    signUpBtn: string;
+    signingIn: string;
+    haveAccount: string;
+    noAccount: string;
+    logout: string;
+    profile: string;
+    errors: {
+      invalidCredentials: string;
+      emailExists: string;
+      weakPassword: string;
+      general: string;
+      googleError: string;
+    };
+  };
+  gate: {
+    title: string;
+    subtitle: string;
+    cta: string;
+    note: string;
   };
   dir: 'ltr' | 'rtl';
 }
@@ -148,6 +186,8 @@ const en: Translation = {
     errors: {
       empty: 'Please describe your reel idea first.',
       tooShort: 'Add a little more detail so the script is on point (min 10 characters).',
+      invalidResponse: 'The AI returned an unexpected response. Please try again.',
+      apiError: 'Could not reach the AI service. Please check your connection and try again.',
     },
   },
   output: {
@@ -214,6 +254,42 @@ const en: Translation = {
       { label: 'FAQ' },
     ],
   },
+  auth: {
+    signIn: 'Sign in',
+    signUp: 'Sign up',
+    signInTitle: 'Welcome back',
+    signUpTitle: 'Create your account',
+    signInSubtitle: 'Sign in to unlock the reel generator.',
+    signUpSubtitle: 'Join free to start generating viral reel scripts.',
+    googleBtn: 'Continue with Google',
+    or: 'or',
+    name: 'Name',
+    namePlaceholder: 'Your name',
+    email: 'Email',
+    emailPlaceholder: 'you@example.com',
+    password: 'Password',
+    passwordPlaceholder: 'At least 6 characters',
+    signInBtn: 'Sign in',
+    signUpBtn: 'Create account',
+    signingIn: 'Please wait…',
+    haveAccount: 'Already have an account?',
+    noAccount: "Don't have an account?",
+    logout: 'Log out',
+    profile: 'Profile',
+    errors: {
+      invalidCredentials: 'Incorrect email or password. Please try again.',
+      emailExists: 'An account with this email already exists. Try signing in.',
+      weakPassword: 'Password must be at least 6 characters long.',
+      general: 'Something went wrong. Please try again.',
+      googleError: 'Could not start Google sign-in. Please try again.',
+    },
+  },
+  gate: {
+    title: 'Sign in to start creating',
+    subtitle: 'The AI reel generator is a premium feature. Log in or create a free account to continue.',
+    cta: 'Sign in to continue',
+    note: 'It only takes a few seconds.',
+  },
   dir: 'ltr',
 };
 
@@ -274,6 +350,8 @@ const hi: Translation = {
     errors: {
       empty: 'कृपया पहले अपना रील आईडिया लिखें।',
       tooShort: 'थोड़ा और विस्तार दें ताकि स्क्रिप्ट सटीक बने (न्यूनतम 10 अक्षर)।',
+      invalidResponse: 'AI से अनपेक्षित प्रतिक्रिया मिली। कृपया दोबारा कोशिश करें।',
+      apiError: 'AI सेवा तक नहीं पहुँच सके। कृपया अपना कनेक्शन जाँचें और दोबारा कोशिश करें।',
     },
   },
   output: {
@@ -339,6 +417,42 @@ const hi: Translation = {
       { label: 'कैसे काम करता है' },
       { label: 'सवाल-जवाब' },
     ],
+  },
+  auth: {
+    signIn: 'लॉगिन',
+    signUp: 'साइन अप',
+    signInTitle: 'वापसी पर स्वागत है',
+    signUpTitle: 'अपना अकाउंट बनाएं',
+    signInSubtitle: 'रील जनरेटर इस्तेमाल करने के लिए लॉगिन करें।',
+    signUpSubtitle: 'फ्री जॉइन करें और वायरल रील स्क्रिप्ट बनाना शुरू करें।',
+    googleBtn: 'Google से जारी रखें',
+    or: 'या',
+    name: 'नाम',
+    namePlaceholder: 'आपका नाम',
+    email: 'ईमेल',
+    emailPlaceholder: 'you@example.com',
+    password: 'पासवर्ड',
+    passwordPlaceholder: 'कम से कम 6 अक्षर',
+    signInBtn: 'लॉगिन करें',
+    signUpBtn: 'अकाउंट बनाएं',
+    signingIn: 'कृपया रुकें…',
+    haveAccount: 'पहले से अकाउंट है?',
+    noAccount: 'अकाउंट नहीं है?',
+    logout: 'लॉगआउट',
+    profile: 'प्रोफ़ाइल',
+    errors: {
+      invalidCredentials: 'ईमेल या पासवर्ड गलत है। दोबारा कोशिश करें।',
+      emailExists: 'इस ईमेल से अकाउंट पहले से है। लॉगिन आज़माएं।',
+      weakPassword: 'पासवर्ड में कम से कम 6 अक्षर होने चाहिए।',
+      general: 'कुछ गड़बड़ हो गई। दोबारा कोशिश करें।',
+      googleError: 'Google लॉगिन शुरू नहीं हुआ। दोबारा कोशिश करें।',
+    },
+  },
+  gate: {
+    title: 'बनाना शुरू करने के लिए लॉगिन करें',
+    subtitle: 'AI रील जनरेटर एक प्रीमियम फ़ीचर है। जारी रखने के लिए लॉगिन करें या फ्री अकाउंट बनाएं।',
+    cta: 'जारी रखने के लिए लॉगिन करें',
+    note: 'बस कुछ सेकंड लगते हैं।',
   },
   dir: 'ltr',
 };
