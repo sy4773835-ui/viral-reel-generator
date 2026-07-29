@@ -31,8 +31,8 @@ const toneKeywords: Record<Tone, { en: string; hi: string }> = {
 };
 
 export const toneKeywordsForDisplay = toneKeywords;
-headers: {
-  },
+
+/** 
  * Calls the server-side edge function that proxies Gemini.
  * The API key never touches the frontend.
  */
