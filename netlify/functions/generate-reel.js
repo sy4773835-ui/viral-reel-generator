@@ -89,4 +89,4 @@ Return ONLY valid JSON in this format:
       }),
     };
   }
-};
+}
