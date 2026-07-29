@@ -32,8 +32,7 @@ const toneKeywords: Record<Tone, { en: string; hi: string }> = {
 
 export const toneKeywordsForDisplay = toneKeywords;
 headers: {
-  'Content-Type': 'application/json',
-},
+  },
  * Calls the server-side edge function that proxies Gemini.
  * The API key never touches the frontend.
  */
@@ -43,7 +42,6 @@ export async function generateReelScript(idea: string, tone: Tone, lang: Lang): 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
     },
     body: JSON.stringify({ idea, tone, lang }),
   });
